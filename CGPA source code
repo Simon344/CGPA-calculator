@@ -1,0 +1,76 @@
+#include <bits/stdc++.h>  
+using namespace std;  
+//cgpa for 1 person    
+int main(){     
+int x; ifstream inFile;   
+inFile.open("data.txt");  
+while(inFile >> x) {   
+cout<<x<< endl; 
+}    
+inFile.close();  
+//variables   
+string courseCode;   
+string name;   
+float courseUnit;   
+float courseScore;  
+float coursePoint;   
+int totalCourse;  
+float cumGradePoint;  
+float courseGradePoint; 
+float totalUnit;   
+float CGPA;      
+//Get initial info   
+cout<<"What is your name?";   
+cin>>name;   
+cout<<"Enter total number of Courses";  
+cin>>totalCourse;     
+//loop to get info for all courses  
+cumGradePoint=0;    //initialise   
+totalUnit=0;     
+for(int n=1; n<= totalCourse; n++){    
+//Get user inputs    
+cout<<"Enter "<<n<< " unit and score"<<endl;  
+cin>>courseUnit; 
+cin>>courseScore;    
+//Obtain point for the courseScore 
+if((courseScore>=70) && (courseScore<101)){   
+coursePoint=7;  
+} 
+else if((courseScore>=65) && (courseScore<70)){     
+coursePoint=6;  
+}      
+else if((courseScore>=60) && (courseScore<65)){    
+coursePoint=5;  
+}     
+else if((courseScore>=55) && (courseScore<60)){   
+coursePoint=4;  
+}      
+else if((courseScore>=50) && (courseScore<55)){  
+coursePoint=3; 
+}     
+else if((courseScore>=45) && (courseScore<50)){  
+coursePoint=2;  
+}      
+else if((courseScore>=40) && (courseScore<45)){    
+coursePoint=1;  
+} 
+else  if((courseScore>=0)  &&  (courseScore<40)){ 
+coursePoint=0; 
+} else{ } 
+cout<<"Invalid  SCORE!!! Try  again"<<  endl; 
+//calculations 
+courseGradePoint=courseUnit*coursePoint; 
+cout<<"Point  is"<<coursePoint<<  endl;    
+cout<<"Grade  point  is  "<<  courseGradePoint<<endl;   
+cumGradePoint+=courseGradePoint; 
+totalUnit+=courseUnit;
+} 
+//cumGradePoint=  sum(courseGradePoint) 
+cout<<"Your Cumm  grade  pt  is "<<cumGradePoint<<  endl;
+cout  <<"Total units  =  "<<totalUnit<<endl;
+//  Final  calculationof  cgpa 
+CGPA= cumGradePoint/totalUnit; 
+cout<<  name  <<",  Your CGPA is  "<<CGPA<<endl; 
+return  0;
+} 
+
